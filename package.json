@@ -1,0 +1,29 @@
+{
+  "name": "mmit-formulary-cli",
+  "version": "0.1.0",
+  "description": "This project aims to simply the retrieval of formulary information from MMIT by using interactive cli via node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "MMIT",
+    "FORMULARY"
+  ],
+  "author": "stevenchin",
+  "license": "MIT",
+  "dependencies": {
+    "error2": "^0.2.2",
+    "inquirer": "^0.9.0",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1",
+    "restler": "^3.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.2",
+    "grunt-conventional-changelog": "^4.1.0",
+    "load-grunt-tasks": "^3.2.0"
+  }
+}

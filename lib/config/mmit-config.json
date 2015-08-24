@@ -1,0 +1,9 @@
+{
+  "api": {
+    "baseUrl": "https://api.mmitnetwork.com",
+    "auth": "/Token",
+    "product": "/Formulary/v1/Products",
+    "coverage": "/Formulary/v1/Coverage/Plan",
+    "formularyTiers": "/Formulary/v1/Coverage/FormularyTiers"
+  }
+}
