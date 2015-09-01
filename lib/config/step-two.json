@@ -1,0 +1,11 @@
+{
+  "questions": [
+    {
+      "type": "expand",
+      "name": "productListChoice",
+      "message": "Select the product you want to find coverage for. Choose one of the following options (type 'h' for help): ",
+      "choices": []
+    }
+  ],
+  "answers": {}
+}

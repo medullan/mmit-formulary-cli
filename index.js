@@ -7,45 +7,10 @@
 var inquirer = require('inquirer'),
     formularySvc = require('./lib/svc/formulary-svc'),
     _ = require('lodash'),
-    bases = require('bases');
-
-var stepOne = {
-    questions: [
-      {
-        type: 'input',
-        name: 'username',
-        message: 'Enter your MMIT username:'
-      },
-      {
-        type: 'password',
-        name: 'password',
-        message: 'Enter your MMIT password:'
-      },
-      {
-        type: 'input',
-        name: 'productName',
-        message: 'Enter name of the product/drug you want to find:'
-      },
-      {
-        type: 'input',
-        name: 'planId',
-        message: 'Enter your planId:'
-      }
-    ],
-    answers: {}
-};
-
-var stepTwo = {
-  questions: [
-    {
-      type: 'expand',
-      name: 'productListChoice',
-      message: 'Choose the product you want you want to find the formulary for: ',
-      choices: []
-    }
-  ],
-  answers: {}
-};
+    bases = require('bases'),
+    stringifyJson = require('./lib/svc/util').stringifyJson,
+    stepOne = require('./lib/config/step-one'),
+    stepTwo = require('./lib/config/step-two');
 
 var stepOneHandler = function(res) {
   var stepOneRes = stepOne.answers = res;
@@ -107,10 +72,6 @@ var displayResults = function(formularyTier){
   console.log('Product: %s', stringifyJson(stepTwo.answers.productListChoice, '\t'));
   console.log('PlanId: %s', stepOne.answers.planId);
   console.log('Formulary Tier: %s', stringifyJson(formularyTier, '\t'));
-};
-
-var stringifyJson = function(json, separator){
-  return JSON.stringify(json, null, separator);
 };
 
 //Get input from user

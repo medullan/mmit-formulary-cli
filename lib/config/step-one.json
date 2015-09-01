@@ -1,0 +1,25 @@
+{
+  "questions": [
+    {
+      "type": "input",
+      "name": "username",
+      "message": "Enter your MMIT username:"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "message": "Enter your MMIT password:"
+    },
+    {
+      "type": "input",
+      "name": "productName",
+      "message": "Enter name of the product/drug you want to find:"
+    },
+    {
+      "type": "input",
+      "name": "planId",
+      "message": "Enter your planId:"
+    }
+  ],
+  "answers": {}
+}

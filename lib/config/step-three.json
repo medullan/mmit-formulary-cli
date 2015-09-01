@@ -1,0 +1,10 @@
+{
+  "questions": [
+    {
+      "type": "confirm",
+      "name": "newSearch",
+      "message": "Want to search for more products (just hit enter for YES)? Note: Username, password and planId input will default to the previous ones",
+      "default": true
+    }
+  ]
+}
