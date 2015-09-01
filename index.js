@@ -10,7 +10,8 @@ var inquirer = require('inquirer'),
     bases = require('bases'),
     stringifyJson = require('./lib/svc/util').stringifyJson,
     stepOne = require('./lib/config/step-one'),
-    stepTwo = require('./lib/config/step-two');
+    stepTwo = require('./lib/config/step-two'),
+    stepThree = require('./lib/config/step-three');
 
 var stepOneHandler = function(res) {
   var stepOneRes = stepOne.answers = res;
@@ -72,7 +73,39 @@ var displayResults = function(formularyTier){
   console.log('Product: %s', stringifyJson(stepTwo.answers.productListChoice, '\t'));
   console.log('PlanId: %s', stepOne.answers.planId);
   console.log('Formulary Tier: %s', stringifyJson(formularyTier, '\t'));
+  //prompt user to conduct a new search
+  setTimeout(newSearch, 2000);
 };
 
-//Get input from user
-inquirer.prompt(stepOne.questions, stepOneHandler);
+var search = function(){
+  inquirer.prompt(stepOne.questions, stepOneHandler);
+};
+
+var newSearch = function(){
+  inquirer.prompt( stepThree.questions, stepThreeHandler);
+};
+
+var stepThreeHandler = function( answers ) {
+  if ( answers.newSearch ) {
+    resetSelection();
+    usePrevInput();
+    inquirer.prompt(stepOne.questions, stepOneHandler);
+  }
+  else {
+    console.log('Thank you for using the mmit-formulary-cli!!!');
+  }
+};
+
+var resetSelection = function(){
+  stepTwo.questions[0].choices = [];
+};
+
+var usePrevInput = function(){
+  var stepOneQuestions = stepOne.questions,
+      stepOneRes = stepOne.answers;
+  stepOneQuestions[0].default = stepOneRes.username;
+  stepOneQuestions[1].default = stepOneRes.password;
+  stepOneQuestions[3].default = stepOneRes.planId;
+};
+
+search();
