@@ -6,7 +6,8 @@
 
 var inquirer = require('inquirer'),
     formularySvc = require('./lib/svc/formulary-svc'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    bases = require('bases');
 
 var stepOne = {
     questions: [
@@ -37,7 +38,7 @@ var stepOne = {
 var stepTwo = {
   questions: [
     {
-      type: 'list',
+      type: 'expand',
       name: 'productListChoice',
       message: 'Choose the product you want you want to find the formulary for: ',
       choices: []
@@ -68,6 +69,7 @@ var displayProductList = function(productList){
     var option = index + 1;
     var productString = 'Product' + option + ': ' + JSON.stringify(product);
     var productChoice = {
+      key: bases.toBase26(index),
       name: productString,
       value: product
     };
