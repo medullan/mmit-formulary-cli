@@ -10,6 +10,5 @@ Once the application is started, you will be prompted for the inputs (`username`
 and to make selections where multiple products/drugs are being returned.
 
 ##Future Release items:
-- Prettify product json being displayed
 - Limit product fields being displayed
 - Support for plan name

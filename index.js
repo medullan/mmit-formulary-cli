@@ -67,7 +67,7 @@ var displayProductList = function(productList){
   }
   productList.forEach(function(product, index){
     var option = index + 1;
-    var productString = 'Product' + option + ': ' + JSON.stringify(product);
+    var productString = 'Product' + option + ': ' + stringifyJson(product, '\t');
     var productChoice = {
       key: bases.toBase26(index),
       name: productString,
@@ -81,7 +81,7 @@ var displayProductList = function(productList){
 
 var logErrors = function(err){
   console.error('Something went wrong while requesting data from MMIT, see the details below: ');
-  console.error(JSON.stringify(err, null, ' '));
+  console.error(stringifyJson(err, '\t'));
 };
 
 var stepTwoHandler = function(res){
@@ -104,9 +104,13 @@ var getFormularyFromCoverage = function(coverageList){
 
 var displayResults = function(formularyTier){
   console.log('\n----- Results summary -----\n');
-  console.log('Product: %s', JSON.stringify(stepTwo.answers.productListChoice));
+  console.log('Product: %s', stringifyJson(stepTwo.answers.productListChoice, '\t'));
   console.log('PlanId: %s', stepOne.answers.planId);
-  console.log('Formulary Tier: %s', JSON.stringify(formularyTier));
+  console.log('Formulary Tier: %s', stringifyJson(formularyTier, '\t'));
+};
+
+var stringifyJson = function(json, separator){
+  return JSON.stringify(json, null, separator);
 };
 
 //Get input from user
