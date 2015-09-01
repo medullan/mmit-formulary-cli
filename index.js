@@ -61,7 +61,7 @@ var getProductList = function(){
 var displayProductList = function(productList){
   var stepTwoChoices = stepTwo.questions[0].choices;
   if(_.isEmpty(productList)){
-    console.error('Could not find any information for the product %s, please check to ensure that the product name has been spelt correctly', stepOne.answers.productName);
+    console.error('An empty product list was returned for %s, please ensure the product has been spelt correctly', stepOne.answers.productName);
     return;
   }
   productList.forEach(function(product, index){
